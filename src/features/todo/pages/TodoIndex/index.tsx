@@ -1,7 +1,11 @@
 import { memo } from 'react'
 
+import "./styles.css"
+
 const TodoIndex = memo(() => {
-  return <div>TodoIndex</div>;
+  const anjir  = "wkwk"
+
+  return <div className='todo bg-secondary'>TodoIndex</div>;
 });
 
 export default TodoIndex

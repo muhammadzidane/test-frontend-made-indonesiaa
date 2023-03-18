@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 
-import todoRouter from "@features/todo/router";
+import todoRouter from "@/features/todo/router";
 
 // Routers
 
