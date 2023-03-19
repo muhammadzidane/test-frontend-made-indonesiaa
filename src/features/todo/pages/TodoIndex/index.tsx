@@ -5,7 +5,7 @@ import "./styles.css"
 const TodoIndex = memo(() => {
   const anjir  = "wkwk"
 
-  return <div className='todo bg-secondary'>TodoIndex</div>;
+  return <h1 className='todo'>TodoIndex</h1>;
 });
 
 export default TodoIndex
