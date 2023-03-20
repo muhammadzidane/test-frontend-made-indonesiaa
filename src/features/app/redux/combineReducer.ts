@@ -1,6 +1,6 @@
 // Slices
-import { counterSlice } from "@/features/counter/redux/slice";
+import { counterSlice } from '@/features/counter/redux/slice'
 
 const reducers = {
-  counterSlice,
+  counterSlice
 }

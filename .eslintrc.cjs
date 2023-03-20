@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true
+
   },
   extends: [
     'eslint:recommended',
@@ -14,7 +15,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
+    project: './tsconfig.json'
   },
   plugins: [
     'react',
@@ -38,10 +40,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    'tailwindcss/no-custom-classname': 'error',
-    'tailwindcss/no-contradicting-classname': 'error',
-    'tailwindcss/classnames-order': 'error'
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
   root: true
 }

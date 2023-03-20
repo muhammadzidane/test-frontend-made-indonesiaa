@@ -23,10 +23,13 @@
     "experimentalDecorators": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src/**/*", 
+    ".eslintrc.cjs"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "types": ["node"]
 }
