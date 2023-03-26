@@ -2,20 +2,20 @@
 import { type RouteObject } from 'react-router-dom'
 
 // UI
-import { TodoIndex } from '../pages'
+import { HomeIndex } from '../pages'
 
-const todoRouter = (): RouteObject[] => [
+const homeRouter = (): RouteObject[] => [
   {
-    path: 'todo',
+    path: '',
     children: [
       {
         path: '',
         element: (
-          <TodoIndex />
+          <HomeIndex />
         )
       }
     ]
   }
 ]
 
-export default todoRouter
+export default homeRouter

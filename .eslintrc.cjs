@@ -34,6 +34,7 @@ module.exports = {
         allowAfterThisConstructor: true
       }
     ],
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
