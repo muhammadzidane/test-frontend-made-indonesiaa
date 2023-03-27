@@ -6,8 +6,10 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      primary: '#B46060',
-      secondary: '#FFBF9B'
+      primary: '#000000',
+      secondary: '#121212',
+      "black-1": "#070707",
+      "white-1": '#FFFFFF'
     },
     fontFamily: {
       sans: ['GothamBold', 'sans-serif'], // Default

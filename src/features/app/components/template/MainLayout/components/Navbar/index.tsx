@@ -1,6 +1,6 @@
 const Navbar = (): JSX.Element => {
   return (
-    <header className="p-8">Navbar</header>
+    <header className="h-[64px] bg-black-1">Navbar</header>
   )
 }
 
