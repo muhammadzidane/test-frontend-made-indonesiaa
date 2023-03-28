@@ -11,6 +11,9 @@ import counterRouter from '@/features/counter/router'
 // Template components
 import { MainLayout } from '@/features/app/components/template'
 
+// Pages
+import { NotFoundPage } from '@/features/app/pages'
+
 // Get routers
 const home = homeRouter()
 const todo = todoRouter()
@@ -21,6 +24,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <MainLayout />,
     children: [...home, ...todo, ...counter]
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />
   }
 ])
 

@@ -1,13 +1,11 @@
-// CVA
-import { cx } from 'class-variance-authority'
-
 // Components
-import { AppText } from '@/features/app/components/base'
+import { ItemWithIcon } from './components'
 
 const Sidebar = (): JSX.Element => {
   return (
-    <aside className={cx('basis-[240px]', 'bg-primary')}>
-      <AppText>This is Imagine Dragons</AppText>
+    <aside className="basis-[240px] bg-primary px-6">
+      <ItemWithIcon icon={<span>ICON</span>} active>Home</ItemWithIcon>
+      <ItemWithIcon icon={<span>ICON</span>}>Search</ItemWithIcon>
     </aside>
   )
 }

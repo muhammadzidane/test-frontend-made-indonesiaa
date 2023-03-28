@@ -1,5 +1,7 @@
 const HomeIndex = (): JSX.Element => (
-  <div>HomeIndex</div>
+  <>
+    <div>HomeIndex</div>
+  </>
 )
 
 export default HomeIndex
