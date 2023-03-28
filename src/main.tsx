@@ -3,10 +3,11 @@ import { Provider } from 'react-redux'
 
 // React Router DOM
 import ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
+
+// Provider
+import { AppProvider } from '@/features/app/components/provider'
 
 // Plugins
-import router from './plugins/router'
 import { persistor, store } from './plugins/redux'
 import '@/plugins/moment'
 
@@ -21,7 +22,7 @@ import '@/assets/styles/antd/index.less'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <RouterProvider router={router} />
+      <AppProvider />
     </PersistGate>
   </Provider>
 )

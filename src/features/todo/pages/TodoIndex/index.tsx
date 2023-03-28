@@ -1,7 +1,7 @@
 // React
 import { Button } from 'antd'
 
-const TodoIndex = (): JSX.Element => (
+const TodoIndex: React.FC = () => (
   <div>
     <h1 className='todo'>TodoIndex</h1>
     <Button>Primary Button</Button>

@@ -1,0 +1,13 @@
+* {
+  color: #767676;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}

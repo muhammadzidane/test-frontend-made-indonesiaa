@@ -1,4 +1,4 @@
-const NotFoundPage = (): JSX.Element => (
+const NotFoundPage: React.FC = () => (
   <div>404</div>
 )
 

@@ -5,6 +5,7 @@ import {
 
 // Routers
 import homeRouter from '@/features/home/router'
+import authRouter from '@/features/auth/router'
 import todoRouter from '@/features/todo/router'
 import counterRouter from '@/features/counter/router'
 
@@ -16,14 +17,19 @@ import { NotFoundPage } from '@/features/app/pages'
 
 // Get routers
 const home = homeRouter()
+const auth = authRouter()
 const todo = todoRouter()
 const counter = counterRouter()
 
 const router = createBrowserRouter([
   {
     path: '/',
+    children: [...auth]
+  },
+  {
+    path: '/',
     element: <MainLayout />,
-    children: [...home, ...todo, ...counter]
+    children: [...home, ...auth, ...todo, ...counter]
   },
   {
     path: '*',

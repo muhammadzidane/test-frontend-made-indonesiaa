@@ -42,9 +42,3 @@
   font-family: "GothamBold";
   src: url("../fonts/gotham/GothamBold.ttf") format("opentype");
 }
-
-* {
- color: #767676;
- font-weight: 400;
- font-size: 14px;
-}

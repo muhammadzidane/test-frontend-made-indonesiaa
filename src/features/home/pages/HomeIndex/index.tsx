@@ -1,4 +1,4 @@
-const HomeIndex = (): JSX.Element => (
+const HomeIndex: React.FC = () => (
   <>
     <div>HomeIndex</div>
   </>

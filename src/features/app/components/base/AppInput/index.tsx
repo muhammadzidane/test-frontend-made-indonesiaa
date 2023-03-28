@@ -1,7 +1,7 @@
 // Ant
 import { Input } from 'antd'
 
-const AppInput = (props: any): JSX.Element => (
+const AppInput: React.FC = (props: any) => (
   <Input {...props} />
 )
 

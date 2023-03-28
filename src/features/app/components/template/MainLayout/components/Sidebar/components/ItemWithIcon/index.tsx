@@ -4,8 +4,8 @@ import { AppText } from '@/features/app/components/base'
 // Interfaces
 import { type IItemWithIconProps } from './interfaces'
 
-const ItemWithIcon = ({ children, icon, active }: IItemWithIconProps): JSX.Element => {
-  const activeClass = `font-semibold ${active ? 'text-white-1' : ''}`
+const ItemWithIcon: React.FC<IItemWithIconProps> = ({ children, icon, active }) => {
+  const activeClass = `font-semibold ${(active ?? false) ? 'text-white-1' : ''}`
 
   return (
     <div className='flex gap-4'>

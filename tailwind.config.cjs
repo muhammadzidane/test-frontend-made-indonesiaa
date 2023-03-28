@@ -9,7 +9,8 @@ module.exports = {
       primary: '#000000',
       secondary: '#121212',
       "black-1": "#070707",
-      "white-1": '#FFFFFF'
+      "white-1": '#FFFFFF',
+      'gray-1': '#d9dadc',
     },
     fontFamily: {
       sans: ['GothamBold', 'sans-serif'], // Default
