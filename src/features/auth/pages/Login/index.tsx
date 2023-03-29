@@ -1,12 +1,14 @@
-import { AppText } from '@features/app/components/base'
-import { Content, Navbar } from './components'
+// React
+import React from 'react'
+
+// Components
+import { Content, LoginSosmed, Navbar } from './components'
 
 const Login: React.FC = () => (
   <div className='flex flex-col h-[100vh]'>
     <Navbar />
     <Content>
-      <AppText>wkwk</AppText>
-      <AppText>wkwk</AppText>
+      <LoginSosmed />
     </Content>
   </div>
 )

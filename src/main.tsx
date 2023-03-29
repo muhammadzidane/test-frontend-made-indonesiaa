@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom/client'
 import { AppProvider } from '@/features/app/components/provider'
 
 // Plugins
+import AntConfigProvider from '@/plugins/ant'
 import { persistor, store } from './plugins/redux'
 import '@/plugins/moment'
 
@@ -22,7 +23,9 @@ import '@/assets/styles/antd/index.less'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <AppProvider />
+      <AntConfigProvider>
+        <AppProvider />
+      </AntConfigProvider>
     </PersistGate>
   </Provider>
 )

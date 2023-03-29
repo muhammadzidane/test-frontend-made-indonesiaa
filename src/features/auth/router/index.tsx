@@ -9,7 +9,7 @@ const authRouter = (): RouteObject[] => [
     path: '',
     children: [
       {
-        path: '/login',
+        path: 'login',
         element: <Login />
       }
     ]
