@@ -3,39 +3,39 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const text = cva('', {
   variants: {
-    intent: {
-      primary: [
-        // 'bg-white',
-        // 'text-gray-800',
-        // 'border-gray-400',
-        // 'hover:bg-gray-100'
-      ],
-      secondary: [
-        // 'bg-white',
-        // 'text-gray-800',
-        // 'border-gray-400',
-        // 'hover:bg-gray-100'
-      ]
-    },
     size: {
-      sm: ['text-sm'],
-      md: ['text-base'],
-      lg: ['text-lg', 'font-bold'],
-      xl: ['text-xl', 'font-extrabold'],
-      '2xl': ['text-2xl', 'font-black']
+      small: ['text-small'],
+      medium: ['text-base'],
+      large: ['text-large'],
+      xlarge: ['text-xlarge'],
+      x2large: ['text-x2large']
+    },
+    weight: {
+      normal: ['font-normal'],
+      semibold: ['font-semibold'],
+      bold: ['font-bold'],
+      xbold: ['font-extrabold'],
+      '2xlbold': ['font-black']
+    },
+    align: {
+      left: ['text-left'],
+      right: ['text-right'],
+      center: ['text-center']
     }
   },
-  compoundVariants: [{ intent: 'primary', size: 'md' }],
+  compoundVariants: [{ intent: 'primary', size: 'medium' }],
   defaultVariants: {
     intent: 'primary',
-    size: 'md'
+    size: 'medium',
+    weight: 'normal'
   }
 })
 
 // Interfaces
 export interface IAppTextProps extends VariantProps<typeof text> {
-  children: string | number
-  intent?: 'primary' | 'secondary'
-  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   className?: string
+  children: string | number
+  size?: 'small' | 'medium' | 'large' | 'xlarge' | 'x2large'
+  weight?: 'bold' | 'semibold' | 'xbold' | '2xlbold'
+  align?: 'left' | 'right' | 'center'
 }

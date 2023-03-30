@@ -6,9 +6,33 @@ import { AppButton, AppText } from '@/features/app/components/base'
 
 const LoginSosmed: React.FC = () => (
   <>
-    <AppButton type='primary'>
-      CONTINUE WITH FACEBOOK
-    </AppButton>
+    <div className='flex flex-col gap-3'>
+      <AppButton color='facebook' size='large' rounded='large' block>
+        CONTINUE WITH FACEBOOK
+      </AppButton>
+
+      <AppButton color='black-1' size='large' rounded='large' block>
+        CONTINUE WITH APPLE
+      </AppButton>
+
+      <AppButton size='large' rounded='large' block>
+        CONTINUE WITH GOOGLE
+      </AppButton>
+
+      <AppButton size='large' rounded='large' block>
+        CONTINUE WITH PHONE NUMBER
+      </AppButton>
+    </div>
+
+    <div>
+      <AppText
+        className='relative left-[43%] bg-white-1 w-max px-5 text-[0.855rem] z-[1]'
+        weight='semibold'
+      >
+        OR
+      </AppText>
+      <hr className='relative bottom-4 z-0 text-gray-1' />
+    </div>
   </>
 )
 

@@ -1,48 +1,42 @@
 // React
-import React from 'react'
+import React, { useCallback } from 'react'
 
-// CVA
-import { cva } from 'class-variance-authority'
+// React Router DOM
+import { useNavigate } from 'react-router-dom'
 
 // Ant
 import { Button } from 'antd'
 
 // CVA
-import { type IAppButtonProps } from './interfaces'
+import { button, type IAppButtonProps } from './cva'
 
-// export const button = cva('', {
-//   variants: {
-//     intent: {
-//       primary: [
-//         // 'bg-white',
-//         // 'text-gray-800',
-//         // 'border-gray-400',
-//         // 'hover:bg-gray-100'
-//       ],
-//       secondary: [
-//         // 'bg-white',
-//         // 'text-gray-800',
-//         // 'border-gray-400',
-//         // 'hover:bg-gray-100'
-//       ]
-//     },
-//     size: {
-//       sm: ['text-sm'],
-//       md: ['text-base'],
-//       lg: ['text-lg', 'font-bold'],
-//       xl: ['text-xl', 'font-extrabold'],
-//       '2xl': ['text-2xl', 'font-black']
-//     }
-//   },
-//   compoundVariants: [{ intent: 'primary', size: 'md' }],
-//   defaultVariants: {
-//     intent: 'primary',
-//     size: 'md'
-//   }
-// })
+const AppButton: React.FC<IAppButtonProps> = ({ children, navigate, className, rounded, color, ...props }) => {
+  const navigateRoute = useNavigate()
 
-const AppButton: React.FC<IAppButtonProps> = ({ children, ...props }) => (
-  <Button className='' {...props}>{children}</Button>
-)
+  const buttonClassName = button({
+    className,
+    rounded,
+    color
+  })
+
+  /**
+   * @description Handle navigate route
+   * @returns void
+   */
+  const onClickButton = useCallback((): void => {
+    navigateRoute(navigate)
+  }, [navigateRoute, navigate])
+
+  return (
+    <Button
+      onClick={onClickButton}
+      className={buttonClassName}
+      type='default'
+      {...props}
+    >
+      {children}
+    </Button>
+  )
+}
 
 export default AppButton

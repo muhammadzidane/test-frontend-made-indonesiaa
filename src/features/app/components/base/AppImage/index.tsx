@@ -5,7 +5,11 @@ import { Image } from 'antd'
 import { type IAppImageProps } from './interfaces'
 
 const AppImage: React.FC = ({ preview, ...props }: IAppImageProps) => (
-  <Image preview={preview || false} {...props} />
+  <Image preview={preview} {...props} />
 )
+
+AppImage.defaultProps = {
+  preview: false
+}
 
 export default AppImage
