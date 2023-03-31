@@ -1,5 +1,5 @@
 // React
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 
 // Ant
 import { Form } from 'antd'
@@ -10,22 +10,30 @@ import { AppButton, AppCheckBox, AppInput, AppText } from '@/features/app/compon
 // Interfaces
 import { type ILoginFormValues } from './interfaces'
 
+import { useAuth } from '@/features/auth/hooks'
+
 const LoginForm: React.FC = () => {
+  const [formLogin] = Form.useForm()
+  const {
+    login,
+    isLoadingLogin
+  } = useAuth()
+
   /**
    * @description On submit login form
    * @param values ILoginFormValues
-   * @returns void
+   * @returns Promise<void>
    */
-  const onFinish = (values: ILoginFormValues): void => {
+  const onFinish = async (values: ILoginFormValues): Promise<void> => {
     try {
-      console.log(values)
+      await login({ body: values }).unwrap()
     } catch (error) {
-      console.log(error)
+      formLogin.resetFields()
     }
   }
 
   return (
-    <Form onFinish={onFinish} className="border-b border-gray-1 pb-1">
+    <Form onFinish={onFinish} form={formLogin} className="border-b border-gray-1 pb-1">
       <Form.Item
         name='username'
         rules={[{ required: true, message: 'Please input your username!' }]}
@@ -62,6 +70,7 @@ const LoginForm: React.FC = () => {
             color='spotify'
             size='large'
             rounded='large'
+            loading={isLoadingLogin}
           >
             LOG IN
           </AppButton>

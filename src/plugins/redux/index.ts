@@ -1,13 +1,6 @@
 // Redux Toolkit
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
-
-// Middleware
-
-// Api
-
-// Reducer
-import { reducers } from "./combineReducer";
+import { configureStore } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 // Redux Persist
 import {
@@ -18,20 +11,29 @@ import {
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+  REGISTER
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+// Middleware error
+import { rtkQueryErrorLogger } from './middleware'
+
+// Api
+import { authApi } from '@/features/auth/redux/rtk'
+
+// Reducer
+import { reducers } from './combineReducer'
 
 // Config for Redux Persist
 const persistConfig = {
-  key: "root",
+  key: 'root',
   version: 1,
-  storage,
+  storage
   // whitelist: ['auth']
-};
+}
 
 // Persisted Reducer
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, reducers)
 
 // Store
 const store = configureStore({
@@ -39,20 +41,23 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-});
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+      }
+    }).concat(
+      rtkQueryErrorLogger,
+      authApi.middleware
+    )
+})
 
 // Persist Store
-const persistor = persistStore(store);
+const persistor = persistStore(store)
 
-setupListeners(store.dispatch);
+setupListeners(store.dispatch)
 
-export { store, persistor };
+export { store, persistor }
 
 // App Store
-export type TRootState = ReturnType<typeof store.getState>;
+export type TRootState = ReturnType<typeof store.getState>
 
 // Root State
-export type TRootDispatch = typeof store.dispatch;
+export type TRootDispatch = typeof store.dispatch

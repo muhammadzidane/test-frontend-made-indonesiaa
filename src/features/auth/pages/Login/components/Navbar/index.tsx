@@ -1,6 +1,6 @@
 
 // Main logo
-import Logo from '../../../../../../assets/images/main-logo-black-1.png'
+import Logo from '@/assets/images/main-logo-black-1.png'
 
 // Components
 import AppImage from '@/features/app/components/base/AppImage'
