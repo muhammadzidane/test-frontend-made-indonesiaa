@@ -28,8 +28,8 @@ import { reducers } from './combineReducer'
 const persistConfig = {
   key: 'root',
   version: 1,
-  storage
-  // whitelist: ['auth']
+  storage,
+  whitelist: ['auth']
 }
 
 // Persisted Reducer
@@ -40,6 +40,7 @@ const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
+      immutableCheck: false,
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }

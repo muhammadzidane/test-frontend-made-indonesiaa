@@ -1,13 +1,12 @@
+// React
+import React from 'react'
+
 // React Router DOM
-import {
-  createBrowserRouter
-} from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 
 // Routers
 import homeRouter from '@/features/home/router'
 import authRouter from '@/features/auth/router'
-import todoRouter from '@/features/todo/router'
-import counterRouter from '@/features/counter/router'
 
 // Template components
 import { MainLayout } from '@/features/app/components/template'
@@ -16,25 +15,27 @@ import { MainLayout } from '@/features/app/components/template'
 import { NotFoundPage } from '@/features/app/pages'
 
 // Get routers
-const home = homeRouter()
 const auth = authRouter()
-const todo = todoRouter()
-const counter = counterRouter()
+const home = homeRouter()
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    children: [...auth]
-  },
-  {
-    path: '/',
-    element: <MainLayout />,
-    children: [...home, ...todo, ...counter]
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />
-  }
-])
+const useRouter = () => {
+  const routes = useRoutes([
+    {
+      path: '/',
+      children: [...auth]
+    },
+    {
+      path: '/',
+      element: <MainLayout />,
+      children: [...home]
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />
+    }
+  ])
 
-export default router
+  return routes
+}
+
+export default useRouter

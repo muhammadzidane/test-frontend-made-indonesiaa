@@ -1,5 +1,5 @@
 // React
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 
 // Ant
 import { Form } from 'antd'
@@ -10,9 +10,13 @@ import { AppButton, AppCheckBox, AppInput, AppText } from '@/features/app/compon
 // Interfaces
 import { type ILoginFormValues } from './interfaces'
 
+// Custom hooks
 import { useAuth } from '@/features/auth/hooks'
+import { useAppDispatch } from '@/features/app/hooks'
+import { authSetAuthenticatedUser } from '@/features/auth/redux/slice'
 
 const LoginForm: React.FC = () => {
+  const dispatch = useAppDispatch()
   const [formLogin] = Form.useForm()
   const {
     login,
@@ -24,18 +28,19 @@ const LoginForm: React.FC = () => {
    * @param values ILoginFormValues
    * @returns Promise<void>
    */
-  const onFinish = async (values: ILoginFormValues): Promise<void> => {
+  const onFinish = useCallback(async (values: ILoginFormValues): Promise<void> => {
     try {
-      await login({ body: values }).unwrap()
+      const response = await login({ body: values }).unwrap()
+      dispatch(authSetAuthenticatedUser(response))
     } catch (error) {
       formLogin.resetFields()
     }
-  }
+  }, [dispatch, formLogin, login])
 
   return (
     <Form onFinish={onFinish} form={formLogin} className="border-b border-gray-1 pb-1">
       <Form.Item
-        name='username'
+        name='user'
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
         <AppInput
@@ -49,6 +54,7 @@ const LoginForm: React.FC = () => {
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
         <AppInput
+          type='password'
           label='Password'
           placeholder='Password'
         />

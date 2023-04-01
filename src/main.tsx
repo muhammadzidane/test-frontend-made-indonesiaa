@@ -19,13 +19,16 @@ import '@/assets/styles/tailwind/index.css'
 
 // Ant design
 import '@/assets/styles/antd/index.less'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <AntConfigProvider>
-        <AppProvider />
-      </AntConfigProvider>
-    </PersistGate>
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AntConfigProvider>
+          <AppProvider />
+        </AntConfigProvider>
+      </PersistGate>
+    </Provider>
+  </BrowserRouter>
 )
