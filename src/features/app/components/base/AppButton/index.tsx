@@ -24,7 +24,9 @@ const AppButton: React.FC<IAppButtonProps> = ({ children, navigate, className, r
    * @returns void
    */
   const onClickButton = useCallback((): void => {
-    navigateRoute(navigate)
+    if (navigate != null) {
+      navigateRoute(navigate)
+    }
   }, [navigateRoute, navigate])
 
   return (

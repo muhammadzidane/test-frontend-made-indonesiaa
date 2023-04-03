@@ -11,10 +11,11 @@ import { notification } from 'antd'
 export const rtkQueryErrorLogger: Middleware =
   () => (next) => (action) => {
     if (isRejectedWithValue(action)) {
-      console.log(action)
+      const description = action.payload.data.message || 'Tejadi kesalahan'
+
       notification.error({
         message: 'Error',
-        description: action.payload.data.message || 'Tejadi kesalahan'
+        description
       })
     }
 

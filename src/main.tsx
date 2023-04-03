@@ -2,10 +2,11 @@
 import { Provider } from 'react-redux'
 
 // React Router DOM
+import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 
 // Provider
-import { AppProvider } from '@/features/app/components/provider'
+import { AppRouter } from '@/features/app/components/base'
 
 // Plugins
 import AntConfigProvider from '@/plugins/ant'
@@ -19,14 +20,13 @@ import '@/assets/styles/tailwind/index.css'
 
 // Ant design
 import '@/assets/styles/antd/index.less'
-import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <AntConfigProvider>
-          <AppProvider />
+          <AppRouter />
         </AntConfigProvider>
       </PersistGate>
     </Provider>

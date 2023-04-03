@@ -22,12 +22,12 @@ const useRouter = () => {
   const routes = useRoutes([
     {
       path: '/',
-      children: [...auth]
+      element: <MainLayout />,
+      children: [...home]
     },
     {
       path: '/',
-      element: <MainLayout />,
-      children: [...home]
+      children: [...auth]
     },
     {
       path: '*',

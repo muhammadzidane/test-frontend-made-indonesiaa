@@ -18,10 +18,7 @@ import { authSetAuthenticatedUser } from '@/features/auth/redux/slice'
 const LoginForm: React.FC = () => {
   const dispatch = useAppDispatch()
   const [formLogin] = Form.useForm()
-  const {
-    login,
-    isLoadingLogin
-  } = useAuth()
+  const { login, isLoadingLogin } = useAuth()
 
   /**
    * @description On submit login form

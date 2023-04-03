@@ -7,14 +7,9 @@ import { HomeIndex } from '../pages'
 const homeRouter = (): RouteObject[] => [
   {
     path: '',
-    children: [
-      {
-        path: '',
-        element: (
-          <HomeIndex />
-        )
-      }
-    ]
+    element: (
+      <HomeIndex />
+    )
   }
 ]
 

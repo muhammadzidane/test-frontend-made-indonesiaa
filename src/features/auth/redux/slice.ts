@@ -12,7 +12,7 @@ export const authSlice = createSlice({
       state.auth = { ...state, ...payload, isLogin: true }
     },
     authLogout: (state) => {
-      state.auth = INIT_AUTH_STATE
+      state.auth = INIT_AUTH_STATE.auth
     }
   }
 })
