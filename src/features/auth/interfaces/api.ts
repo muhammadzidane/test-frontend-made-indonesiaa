@@ -1,4 +1,4 @@
-export interface IUserData {
+export interface IUserDataResponse {
   id: string
   branch_id: number
   name: string
@@ -14,10 +14,12 @@ export interface IUserData {
   deleted_at: null
 }
 
-export interface IInitAuthState {
-  auth: {
-    accessToken: string | null
-    userData: IUserData | Record<string, never>
-    isLogin: boolean
-  }
+export interface ILoginResponse {
+  accessToken: string
+  userData: IUserDataResponse
+}
+
+export interface ILoginBody {
+  user: string
+  password: string
 }

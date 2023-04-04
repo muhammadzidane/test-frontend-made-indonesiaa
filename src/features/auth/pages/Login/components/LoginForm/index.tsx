@@ -8,7 +8,7 @@ import { Form } from 'antd'
 import { AppButton, AppCheckBox, AppInput, AppText } from '@/features/app/components/base'
 
 // Interfaces
-import { type ILoginFormValues } from './interfaces'
+import { type ILoginBody } from '@/features/auth/interfaces/api'
 
 // Custom hooks
 import { useAuth } from '@/features/auth/hooks'
@@ -25,7 +25,7 @@ const LoginForm: React.FC = () => {
    * @param values ILoginFormValues
    * @returns Promise<void>
    */
-  const onFinish = useCallback(async (values: ILoginFormValues): Promise<void> => {
+  const onFinish = useCallback(async (values: ILoginBody): Promise<void> => {
     try {
       const response = await login({ body: values }).unwrap()
       dispatch(authSetAuthenticatedUser(response))
