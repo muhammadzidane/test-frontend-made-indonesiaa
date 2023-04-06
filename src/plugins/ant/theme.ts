@@ -1,7 +1,7 @@
 const theme = {
   token: {
-    colorPrimary: '#1ED760'
-  }
-}
+    colorPrimary: "#1ED760",
+  },
+};
 
-export default theme
+export default theme;

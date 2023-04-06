@@ -1,17 +1,17 @@
 // Redux toolkit
-import { combineReducers } from '@reduxjs/toolkit'
+import { combineReducers } from "@reduxjs/toolkit";
 
 // Slices
-import { authSlice } from '@/features/auth/redux/slice'
+import { authSlice } from "@/features/auth/redux/slice";
 
 // RTK
-import { authApi } from '@/features/auth/redux/rtk'
+import { authApi } from "@/features/auth/redux/rtk";
 
 const plainReducers = {
   auth: authSlice.reducer,
-  [authApi.reducerPath]: authApi.reducer
-}
+  [authApi.reducerPath]: authApi.reducer,
+};
 
-const reducers = combineReducers(plainReducers)
+const reducers = combineReducers(plainReducers);
 
-export { plainReducers, reducers }
+export { plainReducers, reducers };

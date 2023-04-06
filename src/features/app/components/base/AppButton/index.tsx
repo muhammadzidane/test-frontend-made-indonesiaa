@@ -1,44 +1,52 @@
 // React
-import React, { useCallback } from 'react'
+import React, { useCallback } from "react";
 
 // React Router DOM
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 // Ant
-import { Button } from 'antd'
+import { Button } from "antd";
 
 // CVA
-import { button, type IAppButtonProps } from './cva'
+import { button, type IAppButtonProps } from "./cva";
 
-const AppButton: React.FC<IAppButtonProps> = ({ children, navigate, className, rounded, color, ...props }) => {
-  const navigateRoute = useNavigate()
+const AppButton: React.FC<IAppButtonProps> = ({
+  children,
+  navigate,
+  className,
+  rounded,
+  color,
+  ...props
+}) => {
+  const navigateRoute = useNavigate();
 
   const buttonClassName = button({
     className,
     rounded,
-    color
-  })
+    color,
+  });
 
   /**
    * @description Handle navigate route
+   *
    * @returns void
    */
   const onClickButton = useCallback((): void => {
     if (navigate != null) {
-      navigateRoute(navigate)
+      navigateRoute(navigate);
     }
-  }, [navigateRoute, navigate])
+  }, [navigateRoute, navigate]);
 
   return (
     <Button
       onClick={onClickButton}
       className={buttonClassName}
-      type='default'
+      type="default"
       {...props}
     >
       {children}
     </Button>
-  )
-}
+  );
+};
 
-export default AppButton
+export default AppButton;

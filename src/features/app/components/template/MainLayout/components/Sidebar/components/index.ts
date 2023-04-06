@@ -1,1 +1,1 @@
-export { default as ItemWithIcon } from './ItemWithIcon'
+export { default as ItemWithIcon } from "./ItemWithIcon";

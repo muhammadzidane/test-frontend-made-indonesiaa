@@ -9,6 +9,7 @@ module.exports = {
     'standard-with-typescript',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended'
   ],
   overrides: [
   ],
@@ -47,7 +48,8 @@ module.exports = {
       {
         "checksVoidReturn": false
       }
-    ]
+    ],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
   },
   root: true
 }

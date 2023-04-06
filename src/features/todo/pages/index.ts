@@ -1,1 +1,1 @@
-export { default as TodoIndex } from "./TodoIndex"
+export { default as TodoIndex } from "./TodoIndex";

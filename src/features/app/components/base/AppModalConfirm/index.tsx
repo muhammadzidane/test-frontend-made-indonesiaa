@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const AppModalConfirm: React.FC = () => {
-  return (
-    <div>AppModalConfirm</div>
-  )
-}
+  return <div>AppModalConfirm</div>;
+};
 
-export default AppModalConfirm
+export default AppModalConfirm;

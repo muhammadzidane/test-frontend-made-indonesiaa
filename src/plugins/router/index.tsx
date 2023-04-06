@@ -1,41 +1,44 @@
 // React
-import React from 'react'
+import React from "react";
 
 // React Router DOM
-import { useRoutes } from 'react-router-dom'
+import { useRoutes } from "react-router-dom";
 
 // Routers
-import homeRouter from '@/features/home/router'
-import authRouter from '@/features/auth/router'
+import homeRouter from "@/features/home/router";
+import authRouter from "@/features/auth/router";
 
 // Template components
-import { MainLayout } from '@/features/app/components/template'
+import { MainLayout } from "@/features/app/components/template";
 
 // Pages
-import { NotFoundPage } from '@/features/app/pages'
+import { NotFoundPage } from "@/features/app/pages";
 
 // Get routers
-const auth = authRouter()
-const home = homeRouter()
+const auth = authRouter();
+const home = homeRouter();
 
-const useRouter = () => {
+const useRouter = (): React.ReactElement<
+  any,
+  string | React.JSXElementConstructor<any>
+> | null => {
   const routes = useRoutes([
     {
-      path: '/',
+      path: "/",
       element: <MainLayout />,
-      children: [...home]
+      children: [...home],
     },
     {
-      path: '/',
-      children: [...auth]
+      path: "/",
+      children: [...auth],
     },
     {
-      path: '*',
-      element: <NotFoundPage />
-    }
-  ])
+      path: "*",
+      element: <NotFoundPage />,
+    },
+  ]);
 
-  return routes
-}
+  return routes;
+};
 
-export default useRouter
+export default useRouter;

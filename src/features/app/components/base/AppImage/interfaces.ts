@@ -1,5 +1,3 @@
-import { type ImageProps } from 'antd'
+import { type ImageProps } from "antd";
 
-export interface IAppImageProps extends ImageProps {
-
-}
+export interface IAppImageProps extends ImageProps {}
