@@ -16,7 +16,12 @@ import { modalConfirm } from "@/features/app/utils";
 const HomeIndex: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const onClickLogout = useCallback(() => {
+  /**
+   * @description Show logout modal
+   *
+   * @returns void
+   */
+  const onClickLogout = useCallback((): void => {
     modalConfirm("info", {
       onOk: () => {
         dispatch(authLogout());

@@ -14,7 +14,7 @@ export const button = cva("", {
       "black-1": ["bg-black-1", "text-white-1"],
     },
   },
-  compoundVariants: [{ rounded: "small" }],
+  // compoundVariants: [{ rounded: "small" }],
 });
 
 export interface IAppButtonProps

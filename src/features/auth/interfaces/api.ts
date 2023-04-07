@@ -19,7 +19,7 @@ export interface ILoginResponse {
   userData: IUserDataResponse;
 }
 
-export interface pILoginBody {
+export interface ILoginBody {
   user: string;
   password: string;
 }

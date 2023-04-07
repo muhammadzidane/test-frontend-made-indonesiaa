@@ -23,10 +23,10 @@ export const text = cva("", {
       center: ["text-center"],
     },
   },
-  compoundVariants: [{ size: "medium" }],
+  // compoundVariants: [{ size: "medium", weight: "normal"}],
   defaultVariants: {
     size: "medium",
-    weight: "normal",
+    weight: "semibold",
   },
 });
 
@@ -35,6 +35,6 @@ export interface IAppTextProps extends VariantProps<typeof text> {
   className?: string;
   children: string | number;
   size?: "small" | "medium" | "large" | "xlarge" | "x2large";
-  weight?: "bold" | "semibold" | "xbold" | "2xlbold";
+  weight?: "normal" | "bold" | "semibold" | "xbold" | "2xlbold";
   align?: "left" | "right" | "center";
 }
