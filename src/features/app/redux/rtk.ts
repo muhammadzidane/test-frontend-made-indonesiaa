@@ -3,14 +3,7 @@ import { type TPrepareHeaders } from "./interfaces";
 
 // Define a service using a base URL and expected endpoints
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-const prepareHeaders: TPrepareHeaders = (headers, { getState }) => {
-  const token = getState()?.auth?.token;
-
-  // If we have a token set in state, let's assume that we should be passing it.
-  if (token !== undefined) {
-    headers.set("authorization", `Bearer ${token}`);
-  }
-
+const prepareHeaders: TPrepareHeaders = (headers) => {
   return headers;
 };
 

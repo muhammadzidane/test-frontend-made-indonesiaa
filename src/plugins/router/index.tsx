@@ -6,7 +6,6 @@ import { useRoutes } from "react-router-dom";
 
 // Routers
 import homeRouter from "@/features/home/router";
-import authRouter from "@/features/auth/router";
 
 // Template components
 import { MainLayout } from "@/features/app/components/template";
@@ -15,7 +14,6 @@ import { MainLayout } from "@/features/app/components/template";
 import { NotFoundPage } from "@/features/app/pages";
 
 // Get routers
-const auth = authRouter();
 const home = homeRouter();
 
 const useRouter = (): React.ReactElement<
@@ -27,10 +25,6 @@ const useRouter = (): React.ReactElement<
       path: "/",
       element: <MainLayout />,
       children: [...home],
-    },
-    {
-      path: "/",
-      children: [...auth],
     },
     {
       path: "*",

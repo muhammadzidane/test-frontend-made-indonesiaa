@@ -15,7 +15,6 @@ const AppButton: React.FC<IAppButtonProps> = ({
   navigate,
   className,
   rounded,
-  color,
   ...props
 }) => {
   const navigateRoute = useNavigate();
@@ -23,7 +22,6 @@ const AppButton: React.FC<IAppButtonProps> = ({
   const buttonClassName = button({
     className,
     rounded,
-    color,
   });
 
   /**

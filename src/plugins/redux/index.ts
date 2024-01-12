@@ -18,9 +18,6 @@ import storage from "redux-persist/lib/storage";
 // Middleware error
 import { rtkQueryErrorLogger } from "./middleware";
 
-// Api
-import { authApi } from "@/features/auth/redux/rtk";
-
 // Reducer
 import { reducers } from "./combineReducer";
 
@@ -29,7 +26,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["auth"],
+  whitelist: ["home"],
 };
 
 // Persisted Reducer
@@ -44,7 +41,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(rtkQueryErrorLogger, authApi.middleware),
+    }).concat(rtkQueryErrorLogger),
 });
 
 // Persist Store
